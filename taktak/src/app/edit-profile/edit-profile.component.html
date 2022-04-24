@@ -1,0 +1,170 @@
+<div class="main-panel">
+    <div class="content-wrapper1">
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Modifier le profil</h4>
+            <form class="form-sample" action="edit-profile.php"  method="GET">
+              <p class="card-description">
+                Informations personnelles
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Nom Complet</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nom_prenom"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="emailClient"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Tél 1</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" placeholder="sans espaces" name="tel"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Tél 2</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Genre</label>
+                    <div class="col-sm-9">
+                      <select class="form-control">
+                        <option>Homme</option>
+                        <option>Femme</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Date de naissance</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" placeholder="aaaa-mm-jj" name="dateNaiss"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Catégorie</label>
+                    <div class="col-sm-9">
+                      <select class="form-control">
+                        <option>Livreur</option>
+                        <option>Client</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Type</label>
+                    <div class="col-sm-4">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked>
+                          Avec patente
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
+                          Sans patente
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="card-description">
+                Addresse
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Addresse 1</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="adresse"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Gouvernorat</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="gouvernorat"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Addresse 2</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Code postal</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="codePostal"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Ville</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Région</label>
+                    <div class="col-sm-9">
+                      <select class="form-control">
+                        <option>Nord</option>
+                        <option>Centre</option>
+                        <option>Sud</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+       
+      </div>
+   </div>
+ </div>

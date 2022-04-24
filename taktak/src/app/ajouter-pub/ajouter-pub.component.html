@@ -1,0 +1,176 @@
+<div class="main-panel">
+  <div class="content-wrapper1">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création Du Colis</h4>
+          <form class="form-sample" #addPublicationForm="ngForm" (submit)="addPublication(addPublicationForm)">
+            <p class="card-description">
+              Informations du destinataire
+            </p>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label">Prénom&Nom</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control" [(ngModel)]="nomPrenomDest" name="nomPrenomDest" required/>
+                  </div>
+                </div>
+                <div> {{ nomPrenomDest }} </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label" >Tél</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control" [(ngModel)]="telDest" name="telDest" required/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label">Email</label>
+                  <div class="col-sm-12">
+                    <input type="email" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- -->
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Destination</label>
+                  <div class="col-sm-11">
+                    <select class="form-control">
+                      <option value="1">
+                        Ariana        </option>
+                        <option value="2">
+                        Béja        </option>
+                        <option value="3">
+                        Ben Arous        </option>
+                        <option value="4">
+                        Bizerte        </option>
+                        <option value="5">
+                        Gabès        </option>
+                        <option value="6">
+                        Gafsa        </option>
+                        <option value="7">
+                        Jendouba        </option>
+                        <option value="8">
+                        Kairouan        </option>
+                        <option value="9">
+                        Kasserine        </option>
+                        <option value="10">
+                        Kebili        </option>
+                        <option value="11">
+                        Le Kef        </option>
+                        <option value="12">
+                        Mahdia        </option>
+                        <option value="13">
+                        Mannouba        </option>
+                        <option value="14">
+                        Medenine        </option>
+                        <option value="15">
+                        Monastir        </option>
+                        <option value="16">
+                        Nabeul        </option>
+                        <option value="17">
+                        Sfax        </option>
+                        <option value="18">
+                        Sidi Bouzid        </option>
+                        <option value="19">
+                        Siliana        </option>
+                        <option value="20">
+                        Sousse        </option>
+                        <option value="21">
+                        Tataouine        </option>
+                        <option value="22">
+                        Tozeur        </option>
+                        <option value="23">
+                        Tunis        </option>
+                        <option value="24">
+                        Zaghouan        </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label">Adresse</label>
+                  <div class="col-sm-10">
+                    <input class="form-control"  placeholder="Saisir l'adresse complète" [(ngModel)]="adresseDest" name="adresseDest" required/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p class="card-description">
+              Informations du Colis
+            </p>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label">Prix total</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control" [(ngModel)]="prixColis" name="prixColis" required/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-9 col-form-label">Nombre de pièces</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control" [(ngModel)]="fraisLivraison" name="fraisLivraison" required/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label" >Taille</label>
+                  <div class="col-sm-11">
+                    <select class="form-control" [(ngModel)]="etat" name="etat">
+                      <option value="legere" selected>
+                        Légère        
+                      </option>
+                      <option value="moyenne">
+                        Moyenne        
+                      </option>
+                      <option value="lourde">
+                        Lourde     
+                      </option>                             
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label" >Identifiant Unique</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control"  pattern="[0-9]{4,}" placeholder="au moins 4 chiffres" [(ngModel)]="numColis" minlength="4" name="numColis" required/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label" >Poids</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" placeholder="en grammes" [(ngModel)]="poids" name="poids" required/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label">Référence</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" [(ngModel)]="libelleColis" name="libelleColis" placeholder="max 10 lettres" maxlength="10" required/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"  [disabled]="!addPublicationForm.valid">Publier</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
