@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Publication } from './publication';
+import { Publication } from '../publication';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PublicationService { 
-  baseURL: string = "http://localhost:92/TAK-TAK/taktak/api/publication.php";
-  constructor(private http: HttpClient) { }
-
-  getPublis(): Observable<Publication[]> {
-    console.log('getPublis '+this.baseURL + 'publis')
-    return this.http.get<Publication[]>(this.baseURL + 'publis')
-  }
- 
-  addPubli(publication:Publication): Observable<any> {
-    const headers = { 'content-type': 'application/json'}  
-    const body=JSON.stringify(publication);
-    console.log(body)
-    return this.http.post(this.baseURL + 'people', body,{'headers':headers})
-  }
+export class PublicationService {
+	PHP_API_SERVER = "http://localhost:92/TAK-TAK/taktak/api";
+	constructor(private httpClient: HttpClient) {}
+	readPublications(): Observable<Publication[]>{
+		return this.httpClient.get<Publication[]>(`${this.PHP_API_SERVER}/index.php`);
+	}
+	createPublication(publication: Publication): Observable<Publication>{
+		return this.httpClient.post<Publication>(`${this.PHP_API_SERVER}/create_publication.php`, publication);
+	}
+	updatePublication(publication: Publication){
+		return this.httpClient.put<Publication>(`${this.PHP_API_SERVER}/update_publication.php`, publication);
+	}
+	deletePublication(numColis: number){
+		return this.httpClient.delete<Publication>(`${this.PHP_API_SERVER}/delete_publication.php/?numColis=${numColis}`);
+	}
 }

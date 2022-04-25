@@ -14,9 +14,8 @@ import { DemandeComponent } from './demande/demande.component';
 import { ProfilComponent } from './profil/profil.component';
 import { PublicationComponent } from './publication/publication.component';
 import { HomeComponent } from './home/home.component';
-import { AjouterPubComponent } from './ajouter-pub/ajouter-pub.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { ModifPubComponent } from './modif-pub/modif-pub.component';
+
 
 
 @NgModule({
@@ -32,10 +31,7 @@ import { ModifPubComponent } from './modif-pub/modif-pub.component';
     ProfilComponent,
     PublicationComponent,
     HomeComponent,
-    AjouterPubComponent,
-    EditProfileComponent,
-    ModifPubComponent,
-   
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
