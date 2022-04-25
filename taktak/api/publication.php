@@ -12,7 +12,7 @@
 	function getPublications()
 	{
 		global $conn;
-		$query = "SELECT numColis, libelleColis,poids, etat, prixColis, fraisLivraison FROM `taktak`.`Colis`";
+		$query = "SELECT numColis, libelleColis,poids, etat, prixColis, fraisLivraison,nomPrenomDest,telDest,adresseDest FROM `taktak`.`Colis`";
 		$response = array();
 		$result = mysqli_query($conn, $query);
 		while($row = mysqli_fetch_array($result))
@@ -23,13 +23,13 @@
 		echo json_encode($response, JSON_PRETTY_PRINT);
 	}
 	
-	/*function getPublication($idPub=0)
+	/*function getPublication($numColis=0)
 	{
 		global $conn;
-		$query = "SELECT numColis, libelleColis, prixColis, fraisLivraison FROM `taktak`.`Publication`,`taktak`.`Colis`";
+		$query = "SELECT numColis, libelleColis, prixColis, fraisLivraison,nomPrenomDest,telDest,adresseDest FROM `taktak`.`Colis`";
 		if($idPub != 0)
 		{
-			$query .= " WHERE idPub=".$idPub." LIMIT 1";
+			$query .= " WHERE numColis=".$numColis." LIMIT 1";
 		}
 		$response = array();
 		$result = mysqli_query($conn, $query);
@@ -45,13 +45,16 @@
 	{
 		global $conn;
 		global $idPub;
+		$nomPrenomDest = $_POST["nomPrenomDest"];
+		$telDest = $_POST["telDest"];
+		$adresseDest = $_POST["adresseDest"];
 		$numColis = $_POST["numColis"];
 		$libelleColis = $_POST["libelleColis"];
 		$poids = $_POST["poids"];
 		$etat = $_POST["etat"];
 		$prixColis = $_POST["prixColis"];
 		$fraisLivraison = $_POST["fraisLivraison"];
-		echo $query="INSERT INTO `taktak`.`Colis`(numColis, libelleColis, poids, etat, prixColis, fraisLivraison, Publication_idPub) VALUES('".$numColis."', '".$libelleColis."','".$poids."', '".$etat."', '".$prixColis."','".$fraisLivraison."', '".$idPub."')";
+		echo $query="INSERT INTO `taktak`.`Colis`(nomPrenomDest,telDest,adresseDest, numColis, libelleColis, poids, etat, prixColis, fraisLivraison,Publication_idPub) VALUES('".$nomPrenomDest."', '".$telDest."', '".$adresseDest."', '".$numColis."', '".$libelleColis."','".$poids."', '".$etat."', '".$prixColis."','".$fraisLivraison."', '".$idPub."')";
 		if(mysqli_query($conn, $query))
 		{
 			$response=array(
@@ -75,13 +78,16 @@
 		global $conn;
 		$_PUT = array();
 		parse_str(file_get_contents('php://input'), $_PUT);
+		$nomPrenomDest = $_PUT["nomPrenomDest"];
+		$telDest = $_PUT["telDest"];
+		$adresseDest = $_PUT["adresseDest"];
 		$libelleColis = $_PUT["libelleColis"];
 		$poids = $_PUT["poids"];
 		$etat = $_PUT["etat"];
 		$prixColis = $_PUT["prixColis"];
 		$fraisLivraison = $_PUT["fraisLivraison"];
 		$Client_emailClient = $_PUT["Client_emailClient"];
-		$query="UPDATE `taktak`.`Colis` SET libelleColis='".$libelleColis."', poids='".$poids."', etat='".$etat."', prixColis='".$prixColis."', fraisLivraison='".$fraisLivraison."', Client_emailClient='".$Client_emailClient."' WHERE numColis=".$numColis;
+		$query="UPDATE `taktak`.`Colis` SET numColis='".$numColis."', libelleColis='".$libelleColis."', poids='".$poids."', etat='".$etat."', prixColis='".$prixColis."', fraisLivraison='".$fraisLivraison."', nomPrenomDest='".$nomPrenomDest."', telDest='".$telDest."', adresseDest='".$adresseDest."' WHERE numColis=".$numColis;
 		
 		if(mysqli_query($conn, $query))
 		{

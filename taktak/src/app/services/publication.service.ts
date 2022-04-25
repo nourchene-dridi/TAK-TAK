@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PublicationService {
+export class PublicationService { 
   baseURL: string = "./api/publication.php";
   constructor(private http: HttpClient) { }
 
