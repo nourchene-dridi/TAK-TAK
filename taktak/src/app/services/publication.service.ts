@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicationService { 
-  baseURL: string = "./api/publication.php";
+  baseURL: string = "http://localhost:92/TAK-TAK/taktak/api/publication.php";
   constructor(private http: HttpClient) { }
 
   getPublis(): Observable<Publication[]> {
